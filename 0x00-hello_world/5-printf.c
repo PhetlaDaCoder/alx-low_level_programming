@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-/** main - printsout text
+/**
+ * main - prints out text
  *
- * Return: 0 When done
-*/
+ * Return: 0 when done.
+ */
 
 int main(void)
 {
