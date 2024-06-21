@@ -4,7 +4,7 @@
  * main - prints possible different combinations of three digits
  * Return: 0 always
  */
-int main(void) 
+int main(void)
 {
 	int n, m, l;
 
@@ -22,7 +22,7 @@ int main(void)
 					if (n != 55 || m != 56)
 					{
 						putchar(',');
-						putchar('');
+						putchar(' ');
 					}
 				}
 			}
