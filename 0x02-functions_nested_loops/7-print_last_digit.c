@@ -5,8 +5,8 @@
  * @n: the int to extract the last digitfrom
  * Return: value of the last digit
  */
-int print_last_digit(int n)
-{
+ int print_last_digit(int n)
+ {
 	int a;
 
 	if (n < 0)
@@ -20,4 +20,4 @@ int print_last_digit(int n)
 	_putchar(a + '0');
 
 	return (a);
-}
+ }
