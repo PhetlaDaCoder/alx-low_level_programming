@@ -20,6 +20,10 @@ int main(void)
 		{
 			printf("%s", "Fizz");
 		}
+		else if (x % 5 == 0)
+		{
+			printf("%s", "Buzz");
+		}
 		else
 		{
 			printf("%d", x);
