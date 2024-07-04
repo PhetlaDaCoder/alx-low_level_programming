@@ -7,7 +7,7 @@
  * @dest: String destination
  * @n: Length of int
  *
- * Return: Ponter of string 
+ * Return: Ponter of string
  *
  */
 char *_strncat(char *dest, char *src, int n)
