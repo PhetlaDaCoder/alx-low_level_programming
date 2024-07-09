@@ -10,24 +10,14 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	char *results = haystack, *mneedle = needle;
+	int count;
 
-	while (*haystack)
+	for (; haystack[0]; haystack++)
 	{
-		while (*needle)
-		{
-			if (*haystack++ != *needle++)
-			{
-				break;
-			}
-		}
-		if (!*needle)
-		{
-			return (results);
-		}
-		needle = mneedle;
-		results++;
-		haystack = result;
+		for (count = 0; haystack[count] == needle[count]; count++)
+			;
+		if (!(needle[count]))
+			return (haystack);
 	}
 	return (0);
 }
