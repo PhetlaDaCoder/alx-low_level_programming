@@ -8,22 +8,25 @@
  * Return: number of bytes
  */
 unsigned int _strspn(char *s, char *accept)
-
-	unsigned int i, j, bool;
-
-	for (i = 0; *(accept + j) != '\0'; j++)
 {
-	bool = 1;
-	for (j = 0; *(accept + j) != '\0'; j++)
+	unsigned int index, j, counter;
+
+	counter = 0;
+	for (index = 0; s[index] != '\0'; index++)
 	{
-		if (*(s + i) == *(accept + j))
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			bool = 0;
-			break;
+			if (accept[j] == s[index])
+			{
+				counter++;
+				break;
+			}
+		}
+		if (accept[j] != s[index])
+		{
+		break;
 		}
 	}
-	if (bool == 1)
-		break;
-	}
-	return (i);
+	return (counter);
 }
+
