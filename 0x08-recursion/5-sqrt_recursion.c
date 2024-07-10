@@ -2,6 +2,7 @@
 
 /**
  * _sqrt_recursion - main function
+ * isqrt - checks for squareroot
  * @n: int n
  * Return: int
  */
