@@ -17,10 +17,10 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * _sqrt - _sqrt_recursion
- * @n: integer paramte
- * @i: integer parameter
- * Return: sqrt
+ * isqrt - function to check for squareroot
+ * @n: number to look for squareroot
+ * @i: squareroot
+ * Return: 1 if squareeoot found and -1 if not found , else recursion
  */
 int _sqrt(int n, int i)
 {
