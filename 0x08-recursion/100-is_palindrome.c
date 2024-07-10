@@ -31,11 +31,12 @@ int _strlen_recursion(char *s)
 
 /**
  * check_pal - checks chars for recursive palindrome
+ *
  * @s: string checked
  * @i: terator
  * @len: length of string
  *
- * Return 1 if palindrome and o if not
+ * Return: 1 if palindrome and o if not
  */
 int check_pal(char *s, int i, int len)
 {
