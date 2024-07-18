@@ -3,7 +3,7 @@
 /**
  * string_nconcat - Concatenates two string values
  * @s1: String one
- * @s2@: String two
+ * @s2: String two
  * @n: maximum number of bytes
  *
  * Return: NULL
