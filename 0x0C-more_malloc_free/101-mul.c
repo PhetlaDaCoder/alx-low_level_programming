@@ -1,89 +1,98 @@
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
-/**
- * _isnumber - checks if string is a number
- * @s: string value
- *
- * Return: 1 if number , 0 if not
- */
-int _isnumber(char *s)
-{
-	int i, check, d;
+#include "main.h"
 
-	d = 0, check = 1;
-	for (i = 0; *(s + i) != 0; i++)
+/**
+ * is_digit - checks if string has non-digit.
+ * @s: string to be checked
+ *
+ * Return: 0 if no digit and 1 otherwise.
+ */
+int is_digit(char *s)
+{
+	int i = 0;
+
+	while (s[i])
 	{
-		d = isdigit(*(s + i));
-		if (d == 0)
-		{
-			check = 0;
-			break;
-		}
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		i++;
 	}
-	return (check);
+	return (1);
 }
 
 /**
- * _callocX - reserves memory to zero
- * @nmemb: bytes
- *
- * Return: pointer
+ * _strlen - return string length
+ *@s: string to check
+ * Return: returns length
  */
-char *_callocX(unsigned int nmemb)
+int _strlen(char *s)
 {
-	unsigned int i;
-	char *p;
+	int i = 0;
 
-	p = malloc(nmemb + 1);
-	if (p == 0)
-		return (0);
-	for (i = 0; i < nmemb; i++)
-		p[i] = '0';
-	p[i] = '\0';
-	return (p);
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
 /**
- * main - multiplies int numbers
- * @argc: # of cmd line args
- * @argv: cmd line args
- * Return: None
+ * errors - handles main;s errors
  */
-int main(int argc, char **argv)
+void errors(void)
 {
-	int i, j, l1, l2, lful, mul, add, ten, ten2, tl, zer = 0;
-	char *res;
+	printf("Error\n");
+	exit(98);
+}
 
-	if (argc != 3 || _isnumber(argv[1]) == 0 || _isnumber(argv[2]) == 0)
-		printf("Error\n"), exit(98);
-	if (atoi(argv[1]) == 0 || atoi(argv[2]) == 0)
-		printf("0\n"), exit(0);
-	l1 = strlen(argv[1]), l2 = strlen(argv[2];
-	lful = l1 + l2;
-	res = _callocX(lful);
-	if (res == 0)
-		printf("Error\n"), exit(98);
-	for (i = 12 - 1; i >= 0; i--)
+/**
+ * main - multiplies 2 positive digits
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: o when done
+ */
+int main(int argc, char *argv[])
+{
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
+
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit9s10 || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len + len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		ten = 0, ten2 = 0;
-		for (j = l1 - 1; j >= 0; j--)
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 		{
-			tl = i + j + 1;
-			mul = (argv[1][j] - '0') * (argv[2][i] - '0') + ten;
-			ten = mul / 10;
-			add = (res[tl] - '0') + (mul % 10) + ten2;
-			ten2 = add / 10;
-			res[tl] = (add % 10) + '0';
+			digit2 = s2[len2] = '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
 		}
-		res[tl - 1] = (ten + ten2) + '0';
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	if (res[0] == '0')
-		zer = 1;
-	for (; zer < lful; zer++)
-		printf("%c", res[zer]);
-	printf("\n");
-	free(res);
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
 	return (0);
 }
