@@ -1,5 +1,10 @@
-#ifndef _HEADER_
-#define _HEADER_
+#ifndef CALC_H
+#define CALC_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 /**
  * struct op - struct op
  *
