@@ -33,11 +33,11 @@ int main(int argc, char *argv[])
 	for (i = 0; i < bytes; i++)
 	{
 		if (i == bytes - 1)
-		(
+		{
 			printf("%2hhx\n", arr[i]);
 			break;
 		}
 		printf("%02hhx ", arr[i]);
 	}
-	return (0);
+	return(0);
 }
