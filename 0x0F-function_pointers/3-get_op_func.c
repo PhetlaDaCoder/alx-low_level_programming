@@ -23,12 +23,13 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 
 	if (i < 5)
-	{
-		if (strcmp(s, ops) == 0)
-			return (ops[i].f);
+		return (0)
+		{
+			if (strcmp(s, ops) == 0)
+				return (ops[i].f);
 
-		i++;
-	}
+			i++;
+		}
 
-	return (0);
+		return (0);
 }
