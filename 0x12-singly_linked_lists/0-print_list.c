@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "lists.h"
-#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * prints_list - A function that prints singly linked list
