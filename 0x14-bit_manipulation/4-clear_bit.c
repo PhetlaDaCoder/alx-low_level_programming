@@ -3,7 +3,7 @@
 
 /**
  * clear_bit - value of bit
- * @n: pointer 
+ * @n: pointer
  * @index: position to check
  * Return: 1 when done, -1 when fail
  */
