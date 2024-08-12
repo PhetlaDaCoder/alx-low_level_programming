@@ -19,6 +19,31 @@ void check97(int argc)
 }
 
 /**
+ * check98 - checks if file exists
+ * @check: checks if true or false
+ * @file: file_from name
+ * @fd_from: file_from
+ * @fd_to: file_to
+ *
+ * Return:void
+ *
+ */
+
+void check98(ssize_t check, char *file, int fd_from, int fd_to)
+{
+	if (check == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+		if (fd_from != -1)
+			close(fd_from);
+		if (fd_to != -1)
+			close(fd_to);
+		exit(98);
+	}
+}
+
+
+/**
  * check99 - checks if file is written or creatted
  * @check: checks if true or false
  * @fd_from: file_from
