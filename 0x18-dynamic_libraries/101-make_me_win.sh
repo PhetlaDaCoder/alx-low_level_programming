@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P /tmp https://raw.githubusercontent.com/alx-tools/0x18.c/refs/heads/master/101-md5_gm
+wget -P /tmp https://github.com/alx-tools/0x18.c/raw/refs/heads/master/gm
 export LD_PRELOAD=/tmp/nrandom.so
