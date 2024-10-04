@@ -40,7 +40,7 @@ void check_elf(unsigned char *e_ident)
 
 /**
  * print_magic - Prints magic numbers of ELF header.
- * @e_indent: pointer to array
+ * @e_ident: pointer to array
  */
 void print_magic(unsigned char *e_ident)
 {
@@ -174,6 +174,7 @@ void print_osabi(unsigned char *e_ident)
 
 /**
  * print_abi - Prints ABI version\@e_ident: Pointer to array.
+ * @e_ident: pointer to arguments.
  */
 void print_abi(unsigned char *e_ident)
 {
@@ -226,7 +227,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry = ((e_entry << 8) &0xFF00FF00) |
+		e_entry = ((e_entry << 8) & 0xFF00FF00) |
 			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
