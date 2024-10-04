@@ -203,7 +203,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("REL (Relocatable file)\n");
 		break;
 	case ET_EXEC:
-		printf("EXEC (Executable file\n");
+		printf("EXEC (Executable file)\n");
 		break;
 	case ET_DYN:
 		printf("DYN (Shared object file)\n");
@@ -247,8 +247,7 @@ void close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %d\n", elf);
+		perror("Error: Can't close file");
 		exit(98);
 	}
 }
@@ -265,25 +264,33 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	int o, r;
 
+	if (argc != 2)
+	{
+		fprintf(stderr,"Usage: %s <ELF file>\n", argv[0]);
+		exit(97);
+	}
+	
 	o = open(argv[1], O_RDONLY);
 	if (o == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		perror("Error: Can't read file");
 		exit(98);
 	}
+	
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		perror("Error");
 		exit(98);
 	}
+
 	r = read(o, header, sizeof(Elf64_Ehdr));
 	if (r == -1)
 	{
 		free(header);
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: '%s': No such file\n", argv[1]);
+		perror("Error: Can't read file");
 		exit(98);
 	}
 
@@ -302,6 +309,3 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	close_elf(o);
 	return (0);
 }
-
-
-
